@@ -19,7 +19,7 @@
 		mrS.ctx.fillRect(offsetX,offsetX,mrS.set.wdt - 2 * offsetX,mrS.set.hgt - 2 * offsetY);
 		mrS.ctx.fillText("mrSnakey", middle - 100, 30); 
 		mrS.ctx.fillStyle = "rgb(165,165,255)";
-		mrS.ctx.fillText("Press any key to start...", middle - 200, row * 4);
+		mrS.ctx.fillText("Press enter to start...", middle - 200, row * 4);
 		for (let i = 0; i < highscore.length; i++) {
 			mrS.ctx.fillText(i + 1 + "- " + highscore[i].Score + " - " + highscore[i].Name, middle - 250, row * (6 + i *2));
 		}
@@ -110,7 +110,7 @@
 		mrS.setStartScreen();
 		window.onkeydown = function (e) {
 			e.preventDefault();			
-			if (!mrS.pen.animation) {
+			if (!mrS.pen.animation && e.keyCode === 13) {
 				mrS.startGame();
 			}			
 			switch (e.keyCode) {
